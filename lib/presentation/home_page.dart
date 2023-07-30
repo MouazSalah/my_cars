@@ -68,8 +68,8 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       body: AppConstants.carsItems.isEmpty
-          ? Center(
-            child: Container( width : double.infinity, 
+          ? const Center(
+            child: SizedBox( width : double.infinity, 
             height : double.infinity,
             child: EmptyView()),
           ) // Show EmptyView when there is no data
