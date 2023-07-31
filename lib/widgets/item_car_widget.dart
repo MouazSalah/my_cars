@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../models/car_model.dart';
 import '../utils/colors.dart';
@@ -73,4 +74,5 @@ class ItemCarWidget extends StatelessWidget {
       ),
     );
   }
+
 }
