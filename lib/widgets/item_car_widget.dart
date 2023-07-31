@@ -41,7 +41,7 @@ class ItemCarWidget extends StatelessWidget {
                     ),
                   ),
                     Text(
-                    "${carItem.kilometer} - ${carItem.price}",
+                    "${carItem.kilometer} KM - ${carItem.price} LE",
                     style: const TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.normal,
