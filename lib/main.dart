@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/base_app.dart';
 import 'data/shared_pref.dart';
+import 'fcm_services.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -10,9 +11,10 @@ Future<void> main() async {
   
   await SharedPref.initialize();
 
-  await Firebase.initializeApp( 
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+  await FirebaseAPi().initNotifications();
+
   runApp(const BaseApp());
 }
