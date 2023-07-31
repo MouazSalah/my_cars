@@ -225,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     //             context: context, screen: HomePage()));
                     //       });
                     //     },
-                    //     icon: SvgPicture.asset("assets/ic_facebook_blue.xml"),
+                    //     icon: SvgPicture.asset("assets/ic_facebook.svg"),
                     //     label: "فيسبوك"),
                     child: ElevatedButton(
                       onPressed: () {

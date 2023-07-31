@@ -58,10 +58,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: AppConstants.carsItems.isEmpty
           ? Center(
-            child: Container( width : double.infinity, 
+            child: SizedBox( width : double.infinity, 
             height : double.infinity,
             child: EmptyView(whenAddClicked: (){
-              navigatoTo(context: context, screen: AddCarScreen());
+              navigatoTo(context: context, screen: const AddCarScreen());
             },)),
           ) // Show EmptyView when there is no data
           : ListView.separated(

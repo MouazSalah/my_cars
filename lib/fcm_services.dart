@@ -10,10 +10,10 @@ class FirebaseAPi {
     //  print("token = $fcmtoken");
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Handling a foreground message: ${message.messageId}');
-      print('Message data: ${message.data}');
-      print('Message notification: ${message.notification?.title}');
-      print('Message notification: ${message.notification?.body}');
+      // print('Handling a foreground message: ${message.messageId}');
+      // print('Message data: ${message.data}');
+      // print('Message notification: ${message.notification?.title}');
+      // print('Message notification: ${message.notification?.body}');
     });
   }
 }

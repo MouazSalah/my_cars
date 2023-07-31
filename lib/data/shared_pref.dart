@@ -30,14 +30,4 @@ class SharedPref {
   static Future<bool?> getBool(String key) async {
     return _sharedPreferences.getBool(key);
   }
-
-  // static Future<void> setObject(String key, dynamic value) async {
-  //   final jsonString = jsonEncode(value);
-  //   await _sharedPreferences.setString(key, jsonString);
-  // }
-
-  // static Future<Map<String, dynamic>?> getObject(String key) async {
-  //   final jsonString = _sharedPreferences.getString(key);
-  //   return jsonString == null ? null : jsonDecode(jsonString);
-  // }
 }
