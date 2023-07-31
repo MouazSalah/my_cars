@@ -3,7 +3,10 @@ import 'package:flutter_application_1/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EmptyView extends StatelessWidget {
-  const EmptyView({super.key});
+
+    final Function() whenAddClicked;
+
+  const EmptyView({super.key, required this.whenAddClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +49,7 @@ class EmptyView extends StatelessWidget {
             child: ElevatedButton.icon(
               onPressed: () {
                 // handle button press
+                whenAddClicked();
               },
               icon: const Icon(
                 Icons.add, // replace with your icon

@@ -7,7 +7,8 @@ class ItemCarWidget extends StatelessWidget {
 
   final CarModel carItem;
   final Function(CarModel) whenDeleteClicked;
-  const ItemCarWidget({super.key, required this.carItem, required this.whenDeleteClicked});
+  final Function(CarModel) whenEditClicked;
+  const ItemCarWidget({super.key, required this.carItem, required this.whenDeleteClicked, required this.whenEditClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +54,19 @@ class ItemCarWidget extends StatelessWidget {
             Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
-                child: IconButton(onPressed: (){
-                      whenDeleteClicked(carItem);
-                  
-                }, icon: const Icon(Icons.delete))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(onPressed: (){
+                          whenEditClicked(carItem);
+                      
+                    }, icon: const Icon(Icons.edit)),
+                    IconButton(onPressed: (){
+                          whenDeleteClicked(carItem);
+                      
+                    }, icon: const Icon(Icons.delete))
+                  ],
+                )),
             )
           ],
         ),

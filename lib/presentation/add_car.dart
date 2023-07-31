@@ -7,13 +7,17 @@ import '../utils/colors.dart';
 import '../utils/navigation.dart';
 
 class AddCarScreen extends StatefulWidget {
-  const AddCarScreen({super.key});
+
+  final CarModel? carModel;
+
+  const AddCarScreen({super.key, this.carModel});
 
   @override
   State<AddCarScreen> createState() => _AddCarScreenState();
 }
 
 class _AddCarScreenState extends State<AddCarScreen> {
+
   var name = TextEditingController();
   String errorNameMessage = "من فضلك ادخل اسم العربية";
   bool isShowNameError = false;
@@ -26,8 +30,21 @@ class _AddCarScreenState extends State<AddCarScreen> {
   String errorKilometerMessage = "من فضلك ادخل عدد الكيلومترات";
   bool isShowKilometerError = false;
 
+
+  @override
+  void initState() {
+  
+    name.text = widget.carModel?.name.toString() ?? "";
+    price.text = widget.carModel?.price.toString() ?? "";
+    kilometer.text = widget.carModel?.kilometer.toString() ?? "";
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+  
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.colorNeutral200,
@@ -288,6 +305,12 @@ class _AddCarScreenState extends State<AddCarScreen> {
   }
 
   void insertCarItem() async {
+
+    if(widget.carModel?.name != null)
+    {
+       await DatabaseHelper.instance.deleteItem(widget.carModel?.name ?? "");
+    }
+
     CarModel item = CarModel(
         name: name.text.toString(),
         price: price.text.toString(),

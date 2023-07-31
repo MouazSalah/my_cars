@@ -18,21 +18,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  // final picker = ImagePicker();
-  // File? _image;
-
-  // Future getImage() async {
-  //   final pickedFile = await picker.getImage(source: ImageSource.gallery);
-
-  //   setState(() {
-  //     if (pickedFile != null) {
-  //       _image = File(pickedFile.path);
-  //     } else {
-  //       print('No image selected.');
-  //     }
-  //   });
-  // }
-
   void whenCarItemDeleted(CarModel carItem) {
     showModalBottomSheet(
       context: context,
@@ -45,6 +30,10 @@ class _HomePageState extends State<HomePage> {
         });
       },
     );
+  }
+
+  void wheneditClicked(CarModel carItem) {
+      navigatoTo(context: context, screen: AddCarScreen(carModel: carItem,));
   }
 
   @override
@@ -71,7 +60,9 @@ class _HomePageState extends State<HomePage> {
           ? Center(
             child: Container( width : double.infinity, 
             height : double.infinity,
-            child: EmptyView()),
+            child: EmptyView(whenAddClicked: (){
+              navigatoTo(context: context, screen: AddCarScreen());
+            },)),
           ) // Show EmptyView when there is no data
           : ListView.separated(
               padding: const EdgeInsets.all(8),
@@ -79,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (BuildContext context, int index) {
                 return ItemCarWidget(
                     carItem: AppConstants.carsItems[index],
-                    whenDeleteClicked: whenCarItemDeleted);
+                    whenDeleteClicked: whenCarItemDeleted, whenEditClicked: wheneditClicked);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const Divider(),
